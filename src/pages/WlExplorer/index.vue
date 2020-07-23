@@ -4,8 +4,8 @@
     <!-- 头部按钮区 -->
     <el-form class="wl-header-btn" :inline="true" :size="size" @submit.native.prevent>
       <el-form-item>
-        <el-button type="primary" @click="handleFolder('add')">新增文件夹</el-button>
-        <el-button :disabled="disabledEditFolder" @click="handleFolder('edit')">编辑文件夹</el-button>
+        <el-button type="primary" @click="handleFolder('add')">新增文件夹1</el-button>
+        <el-button :disabled="disabledEditFolder" @click="handleFolder('edit')">编辑文件夹2</el-button>
         <submit-btn type="danger" :size="size" @btn="handleDel" :status="load.del">删除</submit-btn>
         <el-button @click="showUpload">上传文件</el-button>
         <!-- solt自定义头部按钮区 -->
