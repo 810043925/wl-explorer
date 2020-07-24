@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <wlExplorer
-      ref="wl-explorer-cpt"
+      ref="wlExplorer"
       :header-dropdown="headerHandle"
       :upload-options="uploadOptions"
       :columns="file_table_columns"
@@ -223,6 +223,7 @@ export default {
      * update: Boolean 数据是否需要更新（不需要表示已存在）
      */
     fileSearch(file, update) {
+      this.$refs.wlExplorer.disabledAddFolder=false;
       if (update) {
         this.path = file;
         this.getFileList();

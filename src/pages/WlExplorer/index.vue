@@ -4,7 +4,7 @@
     <!-- 头部按钮区 -->
     <el-form class="wl-header-btn" :inline="true" :size="size" @submit.native.prevent>
       <el-form-item>
-        <el-button type="primary" @click="handleFolder('add')">新增文件夹1</el-button>
+        <el-button :disabled="disabledAddFolder" type="primary" @click="handleFolder('add')">新增文件夹x</el-button>
         <el-button :disabled="disabledEditFolder" @click="handleFolder('edit')">编辑文件夹2</el-button>
         <submit-btn type="danger" :size="size" @btn="handleDel" :status="load.del">删除</submit-btn>
         <el-button @click="showUpload">上传文件</el-button>
@@ -327,6 +327,7 @@ export default {
       }, // 记录路径历史
       self_data: [], // 当前数据
       file_checked_data: [], // 列表多选数据
+      disabledAddFolder:true,
       matched_path: false, // 路径输入框内是否有匹配到的数据
       tree_path: [], // 全部路径树数据
       move_selected: "", // 所选移动文件目标路径
