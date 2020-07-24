@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:810043925/wl-explorer.git"
+    "url": "git+ssh://git@github.com/810043925/wl-explorer.git"
   },
   "eslintConfig": {
     "root": true,
