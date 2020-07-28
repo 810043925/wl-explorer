@@ -600,6 +600,7 @@ export default {
     // 前进后退按钮操作
     pathBtn(type) {
       if (type === "prv") {
+        console.log(this.path.index)
         if (this.pathIsStart) return;
         if (this.path.index === -1) {
           this.path.index = this.path.history.length - 1;
@@ -935,6 +936,10 @@ export default {
         this.file_checked_data.length !== 1 ||
         !this.file_checked_data[0][this.selfIsFolder]
       );
+    },
+    // 是否禁用编辑文件夹按钮
+    disabledAddFolder(){
+      
     }
   },
   watch: {
