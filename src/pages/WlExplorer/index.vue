@@ -609,7 +609,7 @@ export default {
         }
         this.path.index -= 1;
         let _prv = this.path.history[this.path.index];
-        console.log('prv' + _prv)
+        console.log('prv' + this.path.history[this.path.index],this.path.history[this.path.index].data)
         this.routerActive(_prv, _prv.data);
       } else if (type === "next") {
         console.log(this.path.index)
@@ -621,7 +621,7 @@ export default {
         if (this.pathIsEnd) return;
         this.path.index += 1;
         let _next = this.path.history[this.path.index];
-        console.log('next' + _next)
+        console.log('next' + this.path.history[this.path.index],this.path.history[this.path.index].data)
         this.routerActive(_next, _next.data);
       } else {
         if (this.path.level === 1) return;
