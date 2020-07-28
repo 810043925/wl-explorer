@@ -609,11 +609,13 @@ export default {
         let _prv = this.path.history[this.path.index];
         this.routerActive(_prv, _prv.data);
       } else if (type === "next") {
+        console.log(this.path.index)
         if (this.pathIsEnd) return;
         this.path.index += 1;
         let _next = this.path.history[this.path.index];
         this.routerActive(_next, _next.data);
       } else {
+        console.log(this.path.index,this.path.level)
         if (this.path.level === 1) return;
         let _pid = this.file.pid !== guid ? this.file.pid : "";
         let _parent_history = this.path.history.find(i => i.id === _pid);
