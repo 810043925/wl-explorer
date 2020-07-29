@@ -4,7 +4,7 @@
     <!-- 头部按钮区 -->
     <el-form class="wl-header-btn" :inline="true" :size="size" @submit.native.prevent>
       <el-form-item>
-        <el-button :disabled="disabledAddFolder" type="primary" @click="handleFolder('add')">新增文件夹x</el-button>
+        <el-button type="primary" @click="handleFolder('add')">新增文件夹</el-button><!-- :disabled="disabledAddFolder" -->
         <!-- <el-button :disabled="disabledEditFolder" @click="handleFolder('edit')">编辑文件夹2</el-button> -->
         <submit-btn type="danger" :size="size" @btn="handleDel" :status="load.del">删除</submit-btn>
         <el-button @click="showUpload">上传文件</el-button>
@@ -18,17 +18,17 @@
             <i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="wl-move">移动</el-dropdown-item>
+            <!-- <el-dropdown-item command="wl-move">移动</el-dropdown-item> -->
             <el-dropdown-item command="wl-download">下载</el-dropdown-item>
             <!-- props自定义头部更多操作 -->
-            <el-dropdown-item
+            <!-- <el-dropdown-item
               v-for="i of selfHeaderDropdown"
               :key="i.id"
               :icon="i.icon"
               :command="i.command"
               :divided="i.divided"
               :disabled="i.disabled"
-            >{{i.name}}</el-dropdown-item>
+            >{{i.name}}</el-dropdown-item> -->
             <!-- solt自定义头部更多操作 -->
             <slot name="header-dropdown"></slot>
           </el-dropdown-menu>
@@ -604,20 +604,16 @@ export default {
         if (this.pathIsStart) return;
         if (this.path.index === -1) {
           this.path.index = this.path.history.length - 1;
-          this.disabledAddFolder = true
         }
-        this.disabledAddFolder = false
         this.path.index -= 1;
         let _prv = this.path.history[this.path.index];
         this.routerActive(_prv, _prv.data);
       } else if (type === "next") {
-        console.log(this.path.index)
         if (this.pathIsEnd) return;
         this.path.index += 1;
         let _next = this.path.history[this.path.index];
         this.routerActive(_next, _next.data);
       } else {
-        console.log(this.path.index,this.path.level)
         if (this.path.level === 1) return;
         let _pid = this.file.pid !== guid ? this.file.pid : "";
         let _parent_history = this.path.history.find(i => i.id === _pid);
@@ -941,10 +937,6 @@ export default {
         !this.file_checked_data[0][this.selfIsFolder]
       );
     },
-    // 是否禁用编辑文件夹按钮
-    disabledAddFolder(){
-      
-    }
   },
   watch: {
     // 检测data数据更新列表
